@@ -5,7 +5,7 @@ angular.module('noticiasApp.controllers')
                 console.debug('Formulario');
 
                 $scope.formMessages = null;
-                
+
                 $scope.noticia = {
                     titulo: null,
                     contenido: null,
@@ -45,8 +45,7 @@ angular.module('noticiasApp.controllers')
                             if (respuesta.error) {
                                 $scope.formMessages = respuesta.message;
                             } else {
-                                console.debug('great success!');
-                                $scope.formMessages = respuesta.message;
+                                window.alert(respuesta.message);
                             }
                         }, function(respuesta) {
                             $scope.formMessages = respuesta.message;
@@ -60,8 +59,7 @@ angular.module('noticiasApp.controllers')
                             if (respuesta.error) {
                                 $scope.formMessages = respuesta.message;
                             } else {
-                                console.debug('great success!');
-                                $scope.formMessages = respuesta.message;
+                                window.alert(respuesta.message);
                             }
                         }, function(respuesta) {
                             $scope.formMessages = respuesta.message;
@@ -78,7 +76,7 @@ angular.module('noticiasApp.controllers')
                         if (respuesta.error) {
                             $scope.formMessages = respuesta.message;
                         } else {
-                            window.alert('Noticia eliminada');
+                            window.alert(respuesta.message);
                             $location.url('indice');
                         }
                     }, function(respuesta) {
