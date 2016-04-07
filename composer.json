@@ -1,0 +1,22 @@
+{
+    "name": "leopic/mantenimiento",
+    "description": "Ejemplo de como crear un mantenimiento usando AngularJS y PHP/MySQL",
+    "config": {
+      "vendor-dir": "back-end/vendor"
+    }, 
+    "require": {
+        "slim/slim": "^3.3",
+        "robmorgan/phinx": "^0.5.3"
+    },
+    "autoload": {
+        "psr-4": {"App\\": "back-end/app/src/"}
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Picado",
+            "email": "leopic@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
