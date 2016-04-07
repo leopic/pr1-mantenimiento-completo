@@ -82,7 +82,7 @@ angular.module('noticiasApp.services')
         };
 
         var eliminar = function eliminar(id, exito, error) {
-            var url = 'back-end/noticia/eliminar' + id;
+            var url = 'back-end/noticia/eliminar/' + id;
 
             return $http.get(url).then(function(respuesta) {
                 if (respuesta.data.error) {

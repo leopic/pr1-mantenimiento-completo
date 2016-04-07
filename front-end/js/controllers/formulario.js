@@ -3,8 +3,9 @@ angular.module('noticiasApp.controllers')
         function ($scope, $location, $routeParams, NoticiasService) {
             $scope.init = function() {
                 console.debug('Formulario');
-                
+
                 $scope.formMessages = null;
+                
                 $scope.noticia = {
                     titulo: null,
                     contenido: null,
@@ -72,7 +73,18 @@ angular.module('noticiasApp.controllers')
             };
 
             $scope.eliminar = function eliminar() {
-
+                if (window.confirm('Realmente quiere eliminar esta noticia?')) {
+                    NoticiasService.eliminar($scope.id, function(respuesta) {
+                        if (respuesta.error) {
+                            $scope.formMessages = respuesta.message;
+                        } else {
+                            window.alert('Noticia eliminada');
+                            $location.url('indice');
+                        }
+                    }, function(respuesta) {
+                        $scope.formMessages = respuesta.message;
+                    });
+                }
             };
 
             $scope.init();
