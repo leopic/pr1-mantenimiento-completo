@@ -60,7 +60,7 @@ class NoticiasService {
 
     public function obtenerLista($pagina = 1) {
         $respuesta = [];
-        $tamanoPagina = 20;
+        $tamanoPagina = 10;
         $pagina = $pagina == 0 ? 1 : intval($pagina);
         $desplace = ($pagina - 1) * $tamanoPagina;
 

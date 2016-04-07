@@ -1,24 +1,43 @@
 <div class="page-header">
     <h1>El Noticiero</h1>
-    <p ng-if="noticias.length">Hoy le ofrecemos {{meta.totalDeNoticias}} noticias. Está en la página {{pagina}}.</p>
-    <a ng-href="#/formulario" class="btn btn-info">Agregue la propia</a>
+    <h3 ng-if="noticias.length">Hoy le ofrecemos {{meta.totalDeNoticias}} noticias. </h3>
+    <h4>Agregue <a ng-href="#/formulario">la suya</a></h4>
 </div>
 
 <div ng-if="noticias.length">
-    <div class="btn-group btn-group-sm btn-group-lg">
-        <button ng-click="retroceder()" class="btn btn-primary" ng-disabled="pagina == 1">&lt;</button>
-        <button class="btn btn-info">{{pagina}} / {{meta.numeroDePaginas}}</button>
-        <button ng-click="avanzar()" class="btn btn-primary" ng-disabled="pagina == meta.numeroDePaginas">&gt;</button>
-    </div>
+    <nav class="text-center">
+        <ul class="pagination">
+            <li ng-class="{'disabled': pagina == 1}">
+                <a aria-label="Next" ng-click="retroceder()"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+
+            <li class="active">
+                <a>{{pagina}} / {{meta.numeroDePaginas}} <span class="sr-only"></span></a>
+            </li>
+
+            <li ng-class="{disabled: pagina == meta.numeroDePaginas}">
+                <a aria-label="Next" ng-click="avanzar()"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+        </ul>
+    </nav>
+
     <ul class="list-group">
-        <li ng-repeat="n in noticias" class="list-group-item">
-            <h4 class="list-group-item-heading">#{{n.id}} - {{n.titulo}}</h4>
-            <p class="list-group-item-text">
-                <span class="btn-group btn-group-sm">
-                    <a ng-href="#/detalle/{{n.id}}" class="btn btn-primary">Detalle</a>
-                    <a ng-href="#/formulario/{{n.id}}" class="btn btn-info">Editar</a>
-                </span>
-            </p>
+        <li class="media" ng-repeat="n in noticias" >
+            <div class="media-left media-middle">
+                <a ng-href="#/detalle/{{n.id}}">
+                    <img class="media-object" src="{{n.url_imagen}}" alt="{{n.titulo}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">#{{n.id}} - {{n.titulo}}</h4>
+                <p>{{n.titulo}}</p>
+                <p class="text-right">
+                    <span class="btn-group btn-group-sm">
+                        <a ng-href="#/detalle/{{n.id}}" class="btn btn-primary">Detalle</a>
+                        <a ng-href="#/formulario/{{n.id}}" class="btn btn-info">Editar</a>
+                    </span>
+                </p>
+            </div>
         </li>
     </ul>
 </div>

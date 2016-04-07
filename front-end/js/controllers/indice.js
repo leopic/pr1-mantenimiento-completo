@@ -3,6 +3,7 @@ angular.module('noticiasApp.controllers')
         function ($scope, NoticiasService) {
             $scope.init = function() {
                 console.debug('Indice');
+                
                 $scope.noticias = null;
                 $scope.pagina = 1;
                 obtenerNoticias();
@@ -23,13 +24,13 @@ angular.module('noticiasApp.controllers')
 
             $scope.avanzar = function avanzar() {
                 $scope.pagina++;
+                obtenerNoticias();
             };
 
             $scope.retroceder = function retroceder() {
                 $scope.pagina--;
+                obtenerNoticias();
             };
-
-            $scope.$watch('pagina', obtenerNoticias);
 
             $scope.init();
         }]);
