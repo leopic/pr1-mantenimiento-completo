@@ -3,8 +3,8 @@ angular.module('noticiasApp.controllers')
         function ($scope, $routeParams, NoticiasService) {
             $scope.init = function() {
                 console.debug('Detalle');
-                $scope.noticia = null;
 
+                $scope.noticia = null;
                 if ($routeParams.id) {
                     $scope.id = $routeParams.id;
                     cargarNoticia();

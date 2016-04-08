@@ -27,7 +27,7 @@ class NoticiasController {
      */
     public function obtenerLista($request) {
         /** @var Request $request */
-        $pagina = $request->getAttribute("pagina", null);
+        $pagina = $request->getAttribute("pagina", 1);
         return $this->noticiasService->obtenerLista($pagina);
     }
 

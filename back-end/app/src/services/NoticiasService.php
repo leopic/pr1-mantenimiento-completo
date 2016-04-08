@@ -24,7 +24,7 @@ class NoticiasService {
 
         if ($this->validation->isValidInt($id)) {
             // El query que vamos a ejecutar en la BD
-            $query = "SELECT titulo, url, contenido, url_imagen FROM noticias WHERE id = :id LIMIT 1";
+            $query = "SELECT titulo, url, contenido, url_imagen FROM noticias WHERE id = :id";
 
             // Los parámetros de ese query
             $parametros = [":id" => intval($id)];
